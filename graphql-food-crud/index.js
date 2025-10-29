@@ -1,4 +1,11 @@
-export const typeDefs = `#graphql
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { resolvers } from './resolvers/resolvers.js';
+import connectDB from './config/database.js';
+
+await connectDB();
+
+const typeDefs = `#graphql
   type Dish {
     id: ID!
     idDish: String!
@@ -38,3 +45,14 @@ export const typeDefs = `#graphql
     deleteDish(id: ID!): Dish!
   }
 `;
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+const { url } = await startStandaloneServer(server, {
+  listen: { port: 4000 },
+});
+
+console.log(`Server ready at: ${url}`);

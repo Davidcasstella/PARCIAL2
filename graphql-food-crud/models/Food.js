@@ -8,31 +8,24 @@ const dishSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true,
-    trim: true
+    required: true
   },
   calories: {
     type: Number,
-    required: true,
-    min: 0
+    required: true
   },
   isVegetarian: {
     type: Boolean,
-    required: true,
-    default: false
+    required: true
   },
   value: {
     type: Number,
-    required: true,
-    min: 0
+    required: true
   },
   comments: {
     type: String,
     default: ""
   }
-}, {
-  timestamps: false,
-  versionKey: '__v'
 });
 
 const Dish = mongoose.model('Dish', dishSchema);

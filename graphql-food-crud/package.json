@@ -1,0 +1,19 @@
+{
+  "name": "graphql-food-crud",
+  "version": "1.0.0",
+  "description": "GraphQL CRUD for Food Database",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": ["graphql", "mongodb", "apollo"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "graphql": "^16.9.0",
+    "mongoose": "^8.8.0"
+  }
+}
